@@ -7,7 +7,7 @@ Redshift
 Dynamo DB	        To ingest thermometer data ----- NOT NEEDED	 
 IoT Core	        To ingest thermometer data	 
 Quicksight	      Reporting	 
-Neptune Graph DB	Relationships/Networking	 
+Neptune Graph DB	Relationships/Networking
 Kinesis Analytics	To query real-time data	 
 RDS MySQL	        To host employee data	 
 SNS	              To send notifications from Kinesis Analytics based on temperature spike.	Kinesis Analytics
