@@ -1,0 +1,252 @@
+Public IP: http://3.91.201.76:7474/
+URL : {Public IP}/browser/
+U: neo4j
+P: Capgemini$123
+
+
+Commands
+---------
+:help
+
+:clear -  to clear scroll frames 
+================================================================================================================
+
+Step 1 : User registeration on mobile application
+-------------------------------------------------
+
+CREATE (A:Employee {empId:1, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})})
+
+CREATE (B:Employee {empId:2, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (C:Employee {empId:3, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (D:Employee {empId:4, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (E:Employee {empId:5, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (f:Employee {empId:6, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})})
+
+
+CREATE (G:Employee {empId:7, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (H:Employee {empId:8, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (I:Employee {empId:9, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (J:Employee {empId:10, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (K:Employee {empId:11, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})})
+
+CREATE (L:Employee {empId:12, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (M:Employee {empId:13, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (N:Employee {empId:14, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (O:Employee {empId:15, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (P:Employee {empId:16, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})})
+
+CREATE (Q:Employee {empId:17, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (R:Employee {empId:18, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (S:Employee {empId:19, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (T:Employee {empId:20, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (U:Employee {empId:21, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})})
+
+CREATE (V:Employee {empId:22, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (W:Employee {empId:23, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (X:Employee {empId:24, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (Y:Employee {empId:25, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})}), (Z:Employee {empId:26, isSypotmatic:False, appInstallDate:date({ timezone: 'Asia/Kolkata'})})
+
+Step 2 : TO delete any node(I used for wrongly created nodes)- Would be needed on application uninstallation
+------------------------------------------------------------------------------------------------------------
+MATCH (n:Employee{empId:1, appInstallDate:date()}) Delete n
+OR
+MATCH (n:Employee{empId:1, appInstallDate:date()}) DETACH Delete n			-- Remove node with relationship
+
+Step 3 : Creating relationship between existing node
+----------------------------------------------------
+Match (n:Employee), (m:Employee) Where n.empId=1 AND m.empId=4 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=2 AND m.empId=5 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=3 AND m.empId=6
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=5 AND m.empId=3
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=1 AND m.empId=2
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+
+Match (n:Employee), (m:Employee) Where n.empId=1 AND m.empId=7 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=1 AND m.empId=10 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=2 AND m.empId=8 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=2 AND m.empId=11 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=3 AND m.empId=9
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=3 AND m.empId=12
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=4 AND m.empId=13
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=3 AND m.empId=16
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=5 AND m.empId=14
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=5 AND m.empId=17
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=6 AND m.empId=15
+CREATE (n) -[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=6 AND m.empId=18
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=7 AND m.empId=19
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=7 AND m.empId=21
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=8 AND m.empId=20
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=8 AND m.empId=22
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=9 AND m.empId=21
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-21')}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=9 AND m.empId=24
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-21')}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=10 AND m.empId=23
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-17')}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=10 AND m.empId=26
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-17')}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=25 AND m.empId=21
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-15')}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=25 AND m.empId=24
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-16')}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=25 AND m.empId=5
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-19')}]->(m)
+
+
+---------------Creating Reverse(both side) relation-------------------------------
+Match (n:Employee), (m:Employee) Where n.empId=4 AND m.empId=1
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-13')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=5 AND m.empId=2
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-13')}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=6 AND m.empId=3
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-13')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=3 AND m.empId=5
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-13')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=2 AND m.empId=1
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-13')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=7 AND m.empId=1 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=10 AND m.empId=1 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=8 AND m.empId=2 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=11 AND m.empId=8 
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=9 AND m.empId=3
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=12 AND m.empId=3
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=13 AND m.empId=4
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=16 AND m.empId=3
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=14 AND m.empId=5
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=17 AND m.empId=5
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=15 AND m.empId=6
+CREATE (n) -[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=18 AND m.empId=6
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=19 AND m.empId=7
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=21 AND m.empId=7
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=20 AND m.empId=8
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=22 AND m.empId=8
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=21 AND m.empId=9
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-21')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=24 AND m.empId=9
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-21')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=23 AND m.empId=10
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-17')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=26 AND m.empId=10
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-17')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=21 AND m.empId=25
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-15')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=24 AND m.empId=25
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-16')}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=5 AND m.empId=25
+CREATE (n)-[:Close_By{Close_By_Date:date('2020-06-19')}]->(m)
+
+Match (n:Employee), (m:Employee) Where n.empId=11 AND m.empId=2
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+Match (n:Employee), (m:Employee) Where n.empId=8 AND m.empId=11
+CREATE (n)-[:Close_By{Close_By_Date:date({timezone:'Asia/Kolkata'})}]->(m);
+
+
+Step 4 : Remove relationship, if required
+-----------------------------------------
+MATCH (n:Employee{ empId: 1 })-[r:Close_By{Close_By_Date:'Asia/Kolkata'}]->() DELETE r
+MATCH (n:Employee{ empId: 1 })-[r:Close_By]->() DELETE r
+MATCH (n)-[r:Close_By]->() WHERE ID(r)=8 DELETE r
+
+Step 5 : Update the sympotmatic person - Update property and adding new label
+-----------------------------------------------------------------------------
+MATCH (n:Employee{ empId: 1}) SET n.isSypotmatic=True, n:Sympotmatic return n
+
+Step 6 : Matching the related nodes from db
+-------------------------------------------
+Match (n:Employee{ empId: 1 })-[r:Close_By]->(e:Employee) return n,r,e
+
+Match (n:Employee{ empId: 1 })-[r:Close_By]->(e:Employee) where r.Close_By_Date>date('2020-06-11') And r.Close_By_Date<date('2020-06-18')  return n,r,e
+
+Match (n:Employee{ empId: 2 })-[r:Close_By]->(e:Employee) where r.Close_By_Date>date('2020-06-12') And r.Close_By_Date<date('2020-06-21')  return n,r,e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**** Youtube link -- https://www.youtube.com/watch?v=10_zDXZ-dms&list=PLvpt9xWchPkbS-XEY2ensW72JLTG_Sgkr&index=7
+
+Referrence Link -- https://neo4j.com/developer/python/
+Python Graph Database | Neo4jUtilize this guide to connect Neo4j to Python. For a Python graph database. Neo4j can be installed on any system and then accessed via it's binary and HTTP APIs, though the Neo4j Python driver is o...neo4j.com
