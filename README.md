@@ -9,6 +9,7 @@ Quicksight
 Neptune 
 Kinesis Analytics
 RDS MySQL	       
+
 SNS	             
 Cloudwatch	 	 
 DMS	             
